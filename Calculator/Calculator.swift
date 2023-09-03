@@ -5,60 +5,74 @@ struct Result: Equatable {
     let displayValue: String
 }
 
+private let operators: [String] = ["+", "-", "*", "/"]
+
 func calculate(input: [String]) -> Result {
     guard let lastElement = input.last else {
         return Result(reducedInput: [], displayValue: "0")
     }
-    
-    let operators: [String] = ["+", "-", "*", "/"]
-    let hasMoreThanOneOperator = input.filter({ element in operators.contains(element) }).count > 1
-    let firstOperator = input.first(where: { element in operators.contains(element) })
+
     let lastOperator = input.last(where: { element in operators.contains(element) })
     let isLastElementOperator = operators.contains(lastElement)
-    let result: [String]
+
     let reducedInput: [String]
+    let displayResults: [String]
     
-    func hasValidExpression(input: [String]) -> Bool {
-        let lastOperator = input.dropLast().last!
-        let isLastElementOperator = operators.contains(lastOperator)
-        
-        return !isLastElementOperator
-    }
-    
-    if let `operator` = firstOperator, hasMoreThanOneOperator, isLastElementOperator, hasValidExpression(input: input) {
-        let inputWithoutLastOperator = input.dropLast()
-        let expression = inputWithoutLastOperator.split(separator: `operator`)
-        let leftNumberString = expression[0].joined()
-        let rightNumberString = expression[1].joined()
-        
-        let leftNumber = try! Decimal.init(leftNumberString, format: .number)
-        let rightNumber = try! Decimal.init(rightNumberString, format: .number)
+    if let parsedInput = parse(input: input), isLastElementOperator {
+        let leftNumber = try! Decimal(parsedInput.lhsNumber, format: .number)
+        let rightNumber = try! Decimal(parsedInput.rhsNumber, format: .number)
         let mathResult: Decimal
-        
-        if `operator` == "+" {
+
+        if parsedInput.operator == "+" {
             mathResult = leftNumber + rightNumber
-        } else if `operator` == "-" {
+        } else if parsedInput.operator == "-" {
             mathResult = leftNumber - rightNumber
-        } else if `operator` == "*"{
+        } else if parsedInput.operator == "*"{
             mathResult = leftNumber * rightNumber
         } else {
             mathResult = leftNumber / rightNumber
         }
         
-        result = ["\(mathResult)"]
-        reducedInput = result + [lastOperator].compactMap({ element in element })
-    } else if let `operator` = lastOperator, hasMoreThanOneOperator {
-        result = input.filter({ element in !operators.contains(element) })
-        reducedInput = result + [`operator`]
-    } else if let `operator` = lastOperator {
-        let splitResult = input.split(separator: `operator`)
-        
-        result = Array(splitResult.last!)
+        displayResults = ["\(mathResult)"]
+        reducedInput = displayResults + input.suffix(1)
+    } else if lastOperator == lastElement {
+        displayResults = input.filter({ element in !operators.contains(element) })
+        reducedInput = displayResults + input.suffix(1)
+    } else if let lastOperator = lastOperator {
+        let splitResult = input.split(separator: lastOperator).suffix(1)
+        displayResults = splitResult.flatMap(Array.init)
         reducedInput = input
     } else {
-        result = input
+        displayResults = input
         reducedInput = input
     }
+
+    return Result(reducedInput: reducedInput, displayValue: displayResults.joined())
+}
+
+private struct ParsedResult {
+    let lhsNumber: String
+    let rhsNumber: String
+    let `operator`: String
+}
+
+private func parse(input: [String]) -> ParsedResult? {
+    guard let `operator` = input.first(where: { element in operators.contains(element) }) else {
+        return nil
+    }
     
-    return Result(reducedInput: reducedInput, displayValue: result.joined())
+    let expression = input.split(separator: `operator`)
+    
+    guard expression.count > 1 else {
+        return nil
+    }
+    
+    let lhs = expression[0].filter { value in !operators.contains(value) }.joined()
+    let rhs = expression[1].filter { value in !operators.contains(value) }.joined()
+    
+    guard !lhs.isEmpty && !rhs.isEmpty else {
+        return nil
+    }
+    
+    return .init(lhsNumber: lhs, rhsNumber: rhs, operator: `operator`)
 }
