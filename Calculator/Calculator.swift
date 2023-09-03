@@ -36,11 +36,11 @@ func calculate(input: [String]) -> Result {
         }
         
         displayResults = ["\(mathResult)"]
-        reducedInput = lastOperator == "=" ? displayResults : displayResults + input.suffix(1)
-    } else if lastOperator == lastElement {
-        displayResults = input.filter({ element in !operators.contains(element) })
         reducedInput = displayResults + input.suffix(1)
-    } else if let lastOperator = lastOperator {
+    } else if lastOperator == lastElement { // FIXME: Needs to be refactored
+        displayResults = input.first == lastOperator ? ["0"] : input.filter({ element in !operators.contains(element) })
+        reducedInput = input.first == lastOperator ? ["0"] + input : displayResults + input.suffix(1)
+    } else if let lastOperator = lastOperator { // FIXME: Needs to be refactored
         let splitResult = input.split(separator: lastOperator).suffix(1)
         displayResults = splitResult.flatMap(Array.init)
         reducedInput = lastOperator == "=" ? displayResults : input
@@ -49,7 +49,10 @@ func calculate(input: [String]) -> Result {
         reducedInput = input
     }
 
-    return Result(reducedInput: reducedInput, displayValue: displayResults.joined())
+    return Result(
+        reducedInput: reducedInput.filter({ element in element != "=" }),
+        displayValue: displayResults.joined()
+    )
 }
 
 private struct ParsedResult {
@@ -63,7 +66,8 @@ private func parse(input: [String]) -> ParsedResult? {
         return nil
     }
     
-    let expression = input.split(separator: `operator`)
+    let modifiedInput: [String] = input.first == `operator` ? ["0"] + input : input
+    let expression = modifiedInput.split(separator: `operator`)
     
     guard expression.count > 1 else {
         return nil

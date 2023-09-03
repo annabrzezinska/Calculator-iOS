@@ -127,5 +127,35 @@ class CalculatorTests: XCTestCase {
         let displayResult = calculate(input: ["0", ".", "2", "4", "+", "1", "="])
         XCTAssertEqual(displayResult, Result(reducedInput: ["1.24"], displayValue: "1.24"))
     }
+    
+    func testInputMinus2Minus_ItReturnsMinus2() {
+        let displayResult = calculate(input: ["-", "2", "-"])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["-2", "-"], displayValue: "-2"))
+    }
+    
+    func testInputEquals5Minus_ItReturns5() {
+        let displayResult = calculate(input: ["=", "5", "-"])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["5", "-"], displayValue: "5"))
+    }
+    
+    func testInputMultiply2Plus_ItReturns0() {
+        let displayResult = calculate(input: ["*", "2", "+"])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["0", "+"], displayValue: "0"))
+    }
+    
+    func testInputDivide_ItReturns() {
+        let displayResult = calculate(input: ["/", "3", "="])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["0"], displayValue: "0"))
+    }
+    
+    func testInputEquals5Minus1_ItReturns1() {
+        let displayResult = calculate(input: ["=", "5", "-", "1"])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["5", "-", "1"], displayValue: "1"))
+    }
+
+    func testInputMultiply_ItReturns() {
+        let displayResult = calculate(input: ["*"])
+        XCTAssertEqual(displayResult, Result(reducedInput: ["0", "*"], displayValue: "0"))
+    }
 
 }
