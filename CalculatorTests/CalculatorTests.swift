@@ -1,24 +1,5 @@
+@testable import Calculator
 import XCTest
-
-func calculate(input: [String]) -> String {
-    guard let lastElement = input.last else {
-        return "0"
-    }
-    
-    let operators: [String] = ["+", "-", "*", "/"]
-    let result: [String]
-    
-    if operators.contains(lastElement) {
-        result = input.dropLast()
-    } else if let `operator` = input.last(where: { element in operators.contains(element) }) {
-        let splitResult = input.split(separator: `operator`, maxSplits: 1)
-        result = Array(splitResult.last!)
-    } else {
-        result = input
-    }
-
-    return result.joined()
-}
 
 class CalculatorTests: XCTestCase {
 
@@ -90,6 +71,26 @@ class CalculatorTests: XCTestCase {
     func testInput999Divide111_ItReturns111() {
         let displayResult = calculate(input: ["9", "9", "/", "1", "1", "1"])
         XCTAssertEqual(displayResult, "111")
+    }
+    
+    func testInput1Plus2Minus_ItReturns3() {
+        let displayResult = calculate(input: ["1", "+", "2", "-"])
+        XCTAssertEqual(displayResult, "3")
+    }
+    
+    func testInput71Plus23Minus_ItReturns48() {
+        let displayResult = calculate(input: ["7", "1", "-", "2", "3", "/"])
+        XCTAssertEqual(displayResult, "48")
+    }
+    
+    func testInput4Multiply6Multiply_ItReturns24() {
+        let displayResult = calculate(input: ["4", "*", "6", "*"])
+        XCTAssertEqual(displayResult, "24")
+    }
+    
+    func testInput27Divide3Plus_ItReturns9() {
+        let displayResult = calculate(input: ["2", "7", "/", "3", "+"])
+        XCTAssertEqual(displayResult, "9")
     }
 
 }
