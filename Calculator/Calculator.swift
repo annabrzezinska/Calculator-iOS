@@ -5,7 +5,7 @@ struct Result: Equatable {
     let displayValue: String
 }
 
-private let operators: [String] = ["+", "-", "*", "/"]
+private let operators: [String] = ["+", "-", "*", "/", "="]
 
 func calculate(input: [String]) -> Result {
     guard let lastElement = input.last else {
@@ -27,21 +27,23 @@ func calculate(input: [String]) -> Result {
             mathResult = leftNumber + rightNumber
         } else if parsedInput.operator == "-" {
             mathResult = leftNumber - rightNumber
-        } else if parsedInput.operator == "*"{
+        } else if parsedInput.operator == "*" {
             mathResult = leftNumber * rightNumber
-        } else {
+        } else if parsedInput.operator == "/" {
             mathResult = leftNumber / rightNumber
+        } else {
+            mathResult = rightNumber
         }
         
         displayResults = ["\(mathResult)"]
-        reducedInput = displayResults + input.suffix(1)
+        reducedInput = lastOperator == "=" ? displayResults : displayResults + input.suffix(1)
     } else if lastOperator == lastElement {
         displayResults = input.filter({ element in !operators.contains(element) })
         reducedInput = displayResults + input.suffix(1)
     } else if let lastOperator = lastOperator {
         let splitResult = input.split(separator: lastOperator).suffix(1)
         displayResults = splitResult.flatMap(Array.init)
-        reducedInput = input
+        reducedInput = lastOperator == "=" ? displayResults : input
     } else {
         displayResults = input
         reducedInput = input
