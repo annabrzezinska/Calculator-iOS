@@ -16,6 +16,7 @@
 		20897CF52AA3852900163266 /* AppDelegateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897CF42AA3852900163266 /* AppDelegateTests.swift */; };
 		20897D0E2AA3910200163266 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897D0D2AA3910200163266 /* CalculatorTests.swift */; };
 		20897D102AA4AA0300163266 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897D0F2AA4AA0300163266 /* Calculator.swift */; };
+		20CB92E22AA8A20A00558775 /* ViewControllerSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20CB92E12AA8A20A00558775 /* ViewControllerSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		20897CF42AA3852900163266 /* AppDelegateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegateTests.swift; sourceTree = "<group>"; };
 		20897D0D2AA3910200163266 /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
 		20897D0F2AA4AA0300163266 /* Calculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		20CB92E12AA8A20A00558775 /* ViewControllerSnapshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				20897CF42AA3852900163266 /* AppDelegateTests.swift */,
 				20897D0D2AA3910200163266 /* CalculatorTests.swift */,
+				20CB92E12AA8A20A00558775 /* ViewControllerSnapshotTests.swift */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20897CF52AA3852900163266 /* AppDelegateTests.swift in Sources */,
+				20CB92E22AA8A20A00558775 /* ViewControllerSnapshotTests.swift in Sources */,
 				20897D0E2AA3910200163266 /* CalculatorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
