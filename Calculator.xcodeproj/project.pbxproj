@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2041970E2AA89DE9008543A7 /* Anchorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2041970D2AA89DE9008543A7 /* Anchorage */; };
+		204197112AA89F34008543A7 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 204197102AA89F34008543A7 /* SnapshotTesting */; };
 		20897CDE2AA3852700163266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897CDD2AA3852700163266 /* AppDelegate.swift */; };
 		20897CE22AA3852700163266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897CE12AA3852700163266 /* ViewController.swift */; };
 		20897CE72AA3852800163266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20897CE62AA3852800163266 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				204197112AA89F34008543A7 /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,6 +138,9 @@
 				20897CF22AA3852900163266 /* PBXTargetDependency */,
 			);
 			name = CalculatorTests;
+			packageProductDependencies = (
+				204197102AA89F34008543A7 /* SnapshotTesting */,
+			);
 			productName = CalculatorTests;
 			productReference = 20897CF02AA3852800163266 /* CalculatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -170,6 +175,7 @@
 			mainGroup = 20897CD12AA3852600163266;
 			packageReferences = (
 				2041970C2AA89DE9008543A7 /* XCRemoteSwiftPackageReference "Anchorage" */,
+				2041970F2AA89F34008543A7 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 20897CDB2AA3852700163266 /* Products */;
 			projectDirPath = "";
@@ -489,6 +495,14 @@
 				minimumVersion = 4.5.0;
 			};
 		};
+		2041970F2AA89F34008543A7 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -496,6 +510,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2041970C2AA89DE9008543A7 /* XCRemoteSwiftPackageReference "Anchorage" */;
 			productName = Anchorage;
+		};
+		204197102AA89F34008543A7 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2041970F2AA89F34008543A7 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
