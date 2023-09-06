@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2041970E2AA89DE9008543A7 /* Anchorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2041970D2AA89DE9008543A7 /* Anchorage */; };
 		20897CDE2AA3852700163266 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897CDD2AA3852700163266 /* AppDelegate.swift */; };
 		20897CE22AA3852700163266 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20897CE12AA3852700163266 /* ViewController.swift */; };
 		20897CE72AA3852800163266 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 20897CE62AA3852800163266 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2041970E2AA89DE9008543A7 /* Anchorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +115,9 @@
 			dependencies = (
 			);
 			name = Calculator;
+			packageProductDependencies = (
+				2041970D2AA89DE9008543A7 /* Anchorage */,
+			);
 			productName = Calculator;
 			productReference = 20897CDA2AA3852700163266 /* Calculator.app */;
 			productType = "com.apple.product-type.application";
@@ -163,6 +168,9 @@
 				Base,
 			);
 			mainGroup = 20897CD12AA3852600163266;
+			packageReferences = (
+				2041970C2AA89DE9008543A7 /* XCRemoteSwiftPackageReference "Anchorage" */,
+			);
 			productRefGroup = 20897CDB2AA3852700163266 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -471,6 +479,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2041970C2AA89DE9008543A7 /* XCRemoteSwiftPackageReference "Anchorage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Rightpoint/Anchorage.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2041970D2AA89DE9008543A7 /* Anchorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2041970C2AA89DE9008543A7 /* XCRemoteSwiftPackageReference "Anchorage" */;
+			productName = Anchorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 20897CD22AA3852600163266 /* Project object */;
 }
