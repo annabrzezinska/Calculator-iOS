@@ -22,7 +22,7 @@ class AppDelegateTests: XCTestCase {
         
         XCTAssertEqual(result, true)
         XCTAssertEqual(window.frame, UIScreen.main.bounds)
-        XCTAssertNotNil(window.rootViewController as? ViewController)
+        XCTAssertNotNil(window.rootViewController as? CalculatorViewController)
         XCTAssertEqual(window.isKeyWindow, true)
         XCTAssertEqual(window.isHidden, false)
     }
