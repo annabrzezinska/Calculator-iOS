@@ -11,46 +11,46 @@ class CalculatorView: UIView {
         distribution: .fillEqually
     )
     
-    let clearButton = UIButton.makeGrayButton(title: "AC")
-    let removeButton = UIButton.makeGrayButton(title: "⌫")
-    let divideButton = UIButton.makeGoldButton(title: "÷")
+    let clearButtonView = ShadowButtonView(title: "AC")
+    let removeButtonView = ShadowButtonView(title: "⌫")
+    let divideButtonView = ShadowButtonView(title: "÷")
     private lazy var firstHorizontalStackView = UIStackView.makeHorizontalStackView(
-        arrangedSubviews: [clearButton, removeButton, divideButton],
+        arrangedSubviews: [clearButtonView, removeButtonView, divideButtonView],
         distribution: .fill
     )
     
-    let sevenButton = UIButton.makeGrayButton(title: "7")
-    let eightButton = UIButton.makeGrayButton(title: "8")
-    let nineButton = UIButton.makeGrayButton(title: "9")
-    let multiplyButton = UIButton.makeGoldButton(title: "×")
+    let sevenButtonView = ShadowButtonView(title: "7")
+    let eightButtonView = ShadowButtonView(title: "8")
+    let nineButtonView = ShadowButtonView(title: "9")
+    let multiplyButtonView = ShadowButtonView(title: "×")
     private lazy var secondHorizontalStackView = UIStackView.makeHorizontalStackView(
-        arrangedSubviews: [sevenButton, eightButton, nineButton, multiplyButton],
+        arrangedSubviews: [sevenButtonView, eightButtonView, nineButtonView, multiplyButtonView],
         distribution: .fillEqually
     )
 
-    let fourButton = UIButton.makeGrayButton(title: "4")
-    let fiveButton = UIButton.makeGrayButton(title: "5")
-    let sixButton = UIButton.makeGrayButton(title: "6")
-    let minusButton = UIButton.makeGoldButton(title: "−")
+    let fourButtonView = ShadowButtonView(title: "4")
+    let fiveButtonView = ShadowButtonView(title: "5")
+    let sixButtonView = ShadowButtonView(title: "6")
+    let minusButtonView = ShadowButtonView(title: "−")
     private lazy var thirdHorizontalStackView = UIStackView.makeHorizontalStackView(
-        arrangedSubviews: [fourButton, fiveButton, sixButton, minusButton],
+        arrangedSubviews: [fourButtonView, fiveButtonView, sixButtonView, minusButtonView],
         distribution: .fillEqually
     )
     
-    let oneButton = UIButton.makeGrayButton(title: "1")
-    let twoButton = UIButton.makeGrayButton(title: "2")
-    let threeButton = UIButton.makeGrayButton(title: "3")
-    let plusButton = UIButton.makeGoldButton(title: "+")
+    let oneButtonView = ShadowButtonView(title: "1")
+    let twoButtonView = ShadowButtonView(title: "2")
+    let threeButtonView = ShadowButtonView(title: "3")
+    let plusButtonView = ShadowButtonView(title: "+")
     private lazy var fourthHorizontalStackView = UIStackView.makeHorizontalStackView(
-        arrangedSubviews: [oneButton, twoButton, threeButton, plusButton],
+        arrangedSubviews: [oneButtonView, twoButtonView, threeButtonView, plusButtonView],
         distribution: .fillEqually
     )
 
-    let zeroButton = UIButton.makeGrayButton(title: "0")
-    let dotButton = UIButton.makeGrayButton(title: ".")
-    let equalButton = UIButton.makeGoldButton(title: "=")
+    let zeroButtonView = ShadowButtonView(title: "0")
+    let dotButtonView = ShadowButtonView(title: ".")
+    let equalButtonView = ShadowButtonView(title: "=")
     private lazy var fifthHorizontalStackView = UIStackView.makeHorizontalStackView(
-        arrangedSubviews: [zeroButton, dotButton, equalButton],
+        arrangedSubviews: [zeroButtonView, dotButtonView, equalButtonView],
         distribution: .fill
     )
     
@@ -69,7 +69,7 @@ class CalculatorView: UIView {
         inputLabel.textAlignment = .right
         inputLabel.textColor = .darkGray
     }
-    
+
     func addSubviews() {
         containerStackView.addSubview(verticalStackView)
         
@@ -89,11 +89,11 @@ class CalculatorView: UIView {
         verticalStackView.horizontalAnchors == containerStackView.horizontalAnchors
         verticalStackView.heightAnchor == containerStackView.heightAnchor
         
-        oneButton.heightAnchor == oneButton.widthAnchor
-        zeroButton.widthAnchor == oneButton.widthAnchor
-        dotButton.widthAnchor == oneButton.widthAnchor
-        divideButton.widthAnchor == oneButton.widthAnchor
-        removeButton.widthAnchor == oneButton.widthAnchor
+        oneButtonView.heightAnchor == oneButtonView.widthAnchor
+        zeroButtonView.widthAnchor == oneButtonView.widthAnchor
+        dotButtonView.widthAnchor == oneButtonView.widthAnchor
+        divideButtonView.widthAnchor == oneButtonView.widthAnchor
+        removeButtonView.widthAnchor == oneButtonView.widthAnchor
     }
     
     @available(*, unavailable)
@@ -106,22 +106,19 @@ class CalculatorView: UIView {
 private extension UIButton {
     
     static func makeGrayButton(title: String) -> UIButton {
-        makeButton(title: title, titleColor: .darkGray, borderColor: UIColor.darkGray)
+        makeButton(title: title, titleColor: .darkGray)
     }
     
     static func makeGoldButton(title: String) -> UIButton {
-        makeButton(title: title, titleColor: .gold, borderColor: UIColor.gold)
+        makeButton(title: title, titleColor: .gold)
     }
     
-    private static func makeButton(title: String, titleColor: UIColor, borderColor: UIColor) -> UIButton {
+    private static func makeButton(title: String, titleColor: UIColor) -> UIButton {
         let button = UIButton(type: .custom)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         button.backgroundColor = .offWhite
-        button.layer.borderWidth = 1.5
-        button.layer.borderColor = borderColor.cgColor
-        button.layer.cornerRadius = 10
         
         return button
     }
@@ -168,6 +165,69 @@ private extension UIStackView {
         stackView.spacing = 20
         
         return stackView
+    }
+
+}
+
+private extension UIView {
+    func addSublayersIfNeeded(sublayers: [CALayer], to targetLayer: CALayer) {
+        sublayers
+            .filter({ !(targetLayer.sublayers ?? []).contains($0) })
+            .forEach({ targetLayer.insertSublayer($0, at: 0) })
+    }
+}
+
+class ShadowButtonView: UIView {
+    
+    let button: UIButton
+    
+    init(title: String) {
+        button = UIButton.makeGrayButton(title: title)
+        super.init(frame: .zero)
+        addSubview(button)
+        button.edgeAnchors == edgeAnchors
+    }
+    
+    override func layoutSublayers(of layer: CALayer) {
+        super.layoutSublayers(of: layer)
+        
+        addSublayersIfNeeded(sublayers: [topButtonLayer, bottomButtonLayer], to: button.layer)
+    }
+    
+    private lazy var topButtonLayer = createShadowLayer(
+        color: .black.withAlphaComponent(0.2),
+        fillColor: button.backgroundColor,
+        offset: .init(width: 10,height: 10),
+        bounds: button.bounds
+    )
+    private lazy var bottomButtonLayer = createShadowLayer(
+        color: .white.withAlphaComponent(0.7),
+        fillColor: button.backgroundColor,
+        offset: .init(width: -5, height: -5),
+        bounds: button.bounds
+    )
+    
+    private func createShadowLayer(
+        color: UIColor,
+        fillColor: UIColor?,
+        offset: CGSize,
+        bounds: CGRect
+    ) -> CALayer {
+        let cornerRadius: CGFloat = 10
+        let layer = CAShapeLayer()
+        layer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius).cgPath
+        layer.fillColor = fillColor?.cgColor
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowOpacity = 1
+        layer.shadowRadius = cornerRadius
+        layer.masksToBounds = false
+
+        return layer
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 
 }

@@ -24,24 +24,24 @@ class CalculatorViewController: UIViewController {
     
     private func setUpButtonActions() {
         let buttonsWithActions: [(button: UIButton, action: Selector)] = [
-            (ownView.oneButton, #selector(oneButtonTapped)),
-            (ownView.twoButton, #selector(twoButtonTapped)),
-            (ownView.threeButton, #selector(threeButtonTapped)),
-            (ownView.fourButton, #selector(fourButtonTapped)),
-            (ownView.fiveButton, #selector(fiveButtonTapped)),
-            (ownView.sixButton, #selector(sixButtonTapped)),
-            (ownView.sevenButton, #selector(sevenButtonTapped)),
-            (ownView.eightButton, #selector(eightButtonTapped)),
-            (ownView.nineButton, #selector(nineButtonTapped)),
-            (ownView.zeroButton, #selector(zeroButtonTapped)),
-            (ownView.dotButton, #selector(dotButtonTapped)),
-            (ownView.plusButton, #selector(plusButtonTapped)),
-            (ownView.minusButton, #selector(minusButtonTapped)),
-            (ownView.multiplyButton, #selector(multiplyButtonTapped)),
-            (ownView.divideButton, #selector(divideButtonTapped)),
-            (ownView.equalButton, #selector(equalButtonTapped)),
-            (ownView.clearButton, #selector(clearButtonTapped)),
-            (ownView.removeButton, #selector(removeButtonTapped))
+            (ownView.oneButtonView.button, #selector(oneButtonTapped)),
+            (ownView.twoButtonView.button, #selector(twoButtonTapped)),
+            (ownView.threeButtonView.button, #selector(threeButtonTapped)),
+            (ownView.fourButtonView.button, #selector(fourButtonTapped)),
+            (ownView.fiveButtonView.button, #selector(fiveButtonTapped)),
+            (ownView.sixButtonView.button, #selector(sixButtonTapped)),
+            (ownView.sevenButtonView.button, #selector(sevenButtonTapped)),
+            (ownView.eightButtonView.button, #selector(eightButtonTapped)),
+            (ownView.nineButtonView.button, #selector(nineButtonTapped)),
+            (ownView.zeroButtonView.button, #selector(zeroButtonTapped)),
+            (ownView.dotButtonView.button, #selector(dotButtonTapped)),
+            (ownView.plusButtonView.button, #selector(plusButtonTapped)),
+            (ownView.minusButtonView.button, #selector(minusButtonTapped)),
+            (ownView.multiplyButtonView.button, #selector(multiplyButtonTapped)),
+            (ownView.divideButtonView.button, #selector(divideButtonTapped)),
+            (ownView.equalButtonView.button, #selector(equalButtonTapped)),
+            (ownView.clearButtonView.button, #selector(clearButtonTapped)),
+            (ownView.removeButtonView.button, #selector(removeButtonTapped))
         ]
         
         buttonsWithActions.forEach { button, selector in
