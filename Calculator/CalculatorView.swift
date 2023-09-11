@@ -1,3 +1,4 @@
+import Anchorage
 import UIKit
 
 class CalculatorView: UIView {
@@ -77,37 +78,22 @@ class CalculatorView: UIView {
     }
     
     func setupConstraints() {
-        inputLabel.translatesAutoresizingMaskIntoConstraints = false
-        containerStackView.translatesAutoresizingMaskIntoConstraints = false
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
+        inputLabel.topAnchor == topAnchor + 191
+        inputLabel.horizontalAnchors == horizontalAnchors + 20
         
-        let inputLabelContraints = [
-            inputLabel.topAnchor.constraint(equalTo: topAnchor, constant: 191),
-            inputLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            inputLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-        ]
+        containerStackView.topAnchor == inputLabel.bottomAnchor + 40
+        containerStackView.horizontalAnchors == horizontalAnchors + 20
+        containerStackView.bottomAnchor == safeAreaLayoutGuide.bottomAnchor - 40
         
-        let containerStackViewContraints = [
-            containerStackView.topAnchor.constraint(equalTo: inputLabel.bottomAnchor, constant: 40),
-            containerStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            containerStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            containerStackView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40),
-        ]
+        verticalStackView.topAnchor == containerStackView.topAnchor
+        verticalStackView.horizontalAnchors == containerStackView.horizontalAnchors
+        verticalStackView.heightAnchor == containerStackView.heightAnchor
         
-        let verticalStackViewConstraints = [
-            verticalStackView.topAnchor.constraint(equalTo: containerStackView.topAnchor),
-            verticalStackView.leadingAnchor.constraint(equalTo: containerStackView.leadingAnchor),
-            verticalStackView.trailingAnchor.constraint(equalTo: containerStackView.trailingAnchor),
-            verticalStackView.heightAnchor.constraint(equalTo: containerStackView.heightAnchor)
-        ]
-        
-        oneButton.heightAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
-        zeroButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
-        dotButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
-        divideButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
-        removeButton.widthAnchor.constraint(equalTo: oneButton.widthAnchor).isActive = true
-
-        NSLayoutConstraint.activate(inputLabelContraints + containerStackViewContraints + verticalStackViewConstraints)
+        oneButton.heightAnchor == oneButton.widthAnchor
+        zeroButton.widthAnchor == oneButton.widthAnchor
+        dotButton.widthAnchor == oneButton.widthAnchor
+        divideButton.widthAnchor == oneButton.widthAnchor
+        removeButton.widthAnchor == oneButton.widthAnchor
     }
     
     @available(*, unavailable)
