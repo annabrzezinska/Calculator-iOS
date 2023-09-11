@@ -21,7 +21,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0")
     }
     
-    func testWhenTappedOnOne_ItDisplaysOne() throws {
+    func testWhenTappedOn1_ItDisplays1() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "1")
@@ -29,7 +29,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "1")
     }
     
-    func testWhenTappedOnOneTwice_ItDisplaysEleven() throws {
+    func testWhenTappedOn11_ItDisplays11() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "1")
@@ -38,7 +38,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "11")
     }
     
-    func testWhenTappedOnTwoAndOne_ItDisplaysTwentyOne() throws {
+    func testWhenTappedOn21_ItDisplays21() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "2")
@@ -47,7 +47,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "21")
     }
     
-    func testWhenTappedOnThreeOneAndTwo_ItDisplaysThreeHundredTwelve() throws {
+    func testWhenTappedOn312_ItDisplays312() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "3")
@@ -57,7 +57,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "312")
     }
     
-    func testWhenTappedOnFourFourFour_ItsDisplaysFourHundredFortyFour() throws {
+    func testWhenTappedOn444_ItsDisplays444() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "4")
@@ -67,7 +67,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "444")
     }
     
-    func testWhenTappedFiveOneAndFour_ItDisplaysFiveHundredFourteen() throws {
+    func testWhenTappedOn514_ItDisplays514() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "5")
@@ -77,7 +77,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "514")
     }
     
-    func testWhenTappedSixThreeAndTwo_ItDisplaysSixHundredThirtyTwo() throws {
+    func testWhenTappedOn632_ItDisplays632() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "6")
@@ -87,7 +87,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "632")
     }
     
-    func testWhenTappedSevenFourAndSeven_ItDisplaysSevenHundredFourtySeven() throws {
+    func testWhenTappedOn747_ItDisplays747() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "7")
@@ -97,7 +97,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "747")
     }
     
-    func testWhenTappedEightFiveAndSix_ItDisplaysEightHundredFiftySix() throws {
+    func testWhenTappedOn856_ItDisplays856() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "8")
@@ -107,7 +107,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "856")
     }
     
-    func testWhenTappedNineSevenAndThree_ItDisplaysNineHundredSeventyThree() throws {
+    func testWhenTappedOn973_ItDisplays973() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "9")
@@ -117,7 +117,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "973")
     }
     
-    func testWhenTappedZero_ItDisplaysZero() throws {
+    func testWhenTappedOn0_ItDisplays0() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "0")
@@ -125,7 +125,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0")
     }
     
-    func testWhenTappedOneAndZero_ItDisplaysTen() throws {
+    func testWhenTappedOn10_ItDisplays10() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "1")
@@ -134,7 +134,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "10")
     }
     
-    func testWhenTappedZeroTwice_ItDisplaysZero() throws {
+    func testWhenTappedOn00_ItDisplays0() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "0")
@@ -143,7 +143,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0")
     }
     
-    func testWhenTappedDot_ItDisplaysZeroDot() throws {
+    func testWhenTappedOnDot_ItDisplays0Dot() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: ".")
@@ -151,7 +151,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0.")
     }
     
-    func testWhenTappedDotAndNine_ItDisplaysZeroDotNine() throws {
+    func testWhenTappedOnDot9_ItDisplays0Dot9() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: ".")
@@ -160,7 +160,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0.9")
     }
     
-    func testWhenTappedFiveDotTwo_ItDisplaysFiveDotTwo() throws {
+    func testWhenTappedOn5Dot2_ItDisplays5Dot2() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "5")
@@ -170,7 +170,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "5.2")
     }
     
-    func testWhenTappedOneAndPlus_ItDisplaysOne() throws {
+    func testWhenTappedOn1Plus2_ItDisplays2() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "1")
@@ -180,7 +180,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "2")
     }
     
-    func testWhenTappedSevenMinusThreeAndEquals_ItDisplaysFour() throws {
+    func testWhenTappedOn7Minus3Plus_ItDisplays4() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "7")
@@ -191,7 +191,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "4")
     }
     
-    func testWhenTappedMultiplyEightAndMinus_ItDisplaysZero() throws {
+    func testWhenTappedOnMultiply8Minus_ItDisplays0() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "×")
@@ -201,7 +201,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0")
     }
     
-    func testWhenTappedSixDivideTwoAndMultiply_ItDisplaysThree() throws {
+    func testWhenTappedOnSixDivideTwoAndMultiply_ItDisplays3() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "6")
@@ -212,7 +212,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "3")
     }
     
-    func testWhenTappedEightMinusThreeAndEqual_ItDisplaysFive() throws {
+    func testWhenTappedOn8Minus3Equal_ItDisplays5() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "8")
@@ -223,7 +223,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "5")
     }
     
-    func testWhenTappedFiveDotAndMinus_ItDisplaysFiveDot() throws {
+    func testWhenTappedOn5DotMinus_ItDisplays5Dot() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "5")
@@ -233,7 +233,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "5.")
     }
     
-    func testWhenTappedFiveDotMinusAndThree_ItDisplaysThree() throws {
+    func testWhenTappedOn5DotMinus3_ItDisplays3() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "5")
@@ -244,7 +244,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "3")
     }
     
-    func testWhenTappedOneTwoThreeAndClear_ItDisplaysZero() throws {
+    func testWhenTappedOn123Clear_ItDisplays0() throws {
         sut.loadViewIfNeeded()
         
         try sut.simulateTapOnButton(withTitle: "1")
@@ -255,7 +255,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "0")
     }
     
-    func testWhenTappedNineEightSevenAndRemoved_ItDisplaysNintyEight() throws {
+    func testWhenTappedOn987Removed_ItDisplays98() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "9")
@@ -266,7 +266,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "98")
     }
     
-    func testWhenTappedFourTwoMinusAndRemove_ItDisplaysFortyTwo() throws {
+    func testWhenTappedOn42MinusRemove_ItDisplays42() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "4")
@@ -277,7 +277,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "42")
     }
     
-    func testWhenTappedFourTwoMinusOneAndRemove_ItDisplaysFortyTwo() throws {
+    func testWhenTappedOn42Minus1Remove_ItDisplays42() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "4")
@@ -289,7 +289,7 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "42")
     }
     
-    func testWhenTappedFourTwoMinusOneSixAndRemove_ItDisplaysOne() throws {
+    func testWhenTappedOn42Minus16Remove_ItDisplays1() throws {
         sut.loadViewIfNeeded()
 
         try sut.simulateTapOnButton(withTitle: "4")

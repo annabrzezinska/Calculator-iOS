@@ -68,7 +68,7 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["1", "0", "*", "3"], displayValue: "3"))
     }
     
-    func testInput999Divide111_ItReturns111() {
+    func testInput99Divide111_ItReturns111() {
         let displayResult = calculate(input: ["9", "9", "/", "1", "1", "1"])
         XCTAssertEqual(displayResult, State(reducedInput: ["9", "9", "/", "1", "1", "1"], displayValue: "111"))
     }
@@ -78,7 +78,7 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["3", "-"], displayValue: "3"))
     }
     
-    func testInput71Plus23Minus_ItReturns48() {
+    func testInput71Minus23Divide_ItReturns48() {
         let displayResult = calculate(input: ["7", "1", "-", "2", "3", "/"])
         XCTAssertEqual(displayResult, State(reducedInput: ["48", "/"], displayValue: "48"))
     }
@@ -103,27 +103,27 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["4", "+"], displayValue: "4"))
     }
     
-    func testInput1Divide2Equals_ItReturns0_5() {
+    func testInput1Divide2Equal_ItReturns0_5() {
         let displayResult = calculate(input: ["1", "/", "2", "="])
         XCTAssertEqual(displayResult, State(reducedInput: ["0.5"], displayValue: "0.5"))
     }
     
-    func testInput5Equals2_ItReturns2() {
+    func testInput5Equal2_ItReturns2() {
         let displayResult = calculate(input: ["5", "=", "2"])
         XCTAssertEqual(displayResult, State(reducedInput: ["2"], displayValue: "2"))
     }
     
-    func testInput7Equals3Plus_ItReturns3() {
+    func testInput7Equal3Plus_ItReturns3() {
         let displayResult = calculate(input: ["7", "=", "3", "+"])
         XCTAssertEqual(displayResult, State(reducedInput: ["3", "+"], displayValue: "3"))
     }
     
-    func testInput8Equals5Equals_ItReturns5() {
+    func testInput8Equal5Equal_ItReturns5() {
         let displayResult = calculate(input: ["8", "=", "5", "="])
         XCTAssertEqual(displayResult, State(reducedInput: ["5"], displayValue: "5"))
     }
     
-    func testInput0_24Plus1Equals_ItReturns1_24() {
+    func testInput0_24Plus1Equal_ItReturns1_24() {
         let displayResult = calculate(input: ["0", ".", "2", "4", "+", "1", "="])
         
         XCTAssertEqual(displayResult, State(reducedInput: ["1.24"], displayValue: "1.24"))
@@ -134,7 +134,7 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["-2", "-"], displayValue: "-2"))
     }
     
-    func testInputEquals5Minus_ItReturns5() {
+    func testInputEqual5Minus_ItReturns5() {
         let displayResult = calculate(input: ["=", "5", "-"])
         XCTAssertEqual(displayResult, State(reducedInput: ["5", "-"], displayValue: "5"))
     }
@@ -144,12 +144,12 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["0", "+"], displayValue: "0"))
     }
     
-    func testInputDivide_ItReturns() {
+    func testInputDivide3Equal_ItReturns0() {
         let displayResult = calculate(input: ["/", "3", "="])
         XCTAssertEqual(displayResult, State(reducedInput: ["0"], displayValue: "0"))
     }
     
-    func testInputEquals5Minus1_ItReturns1() {
+    func testInputEqual5Minus1_ItReturns1() {
         let displayResult = calculate(input: ["=", "5", "-", "1"])
         XCTAssertEqual(displayResult, State(reducedInput: ["5", "-", "1"], displayValue: "1"))
     }
@@ -189,7 +189,7 @@ class CalculatorTests: XCTestCase {
         XCTAssertEqual(displayResult, State(reducedInput: ["5", ".", "-", "3"], displayValue: "3"))
     }
     
-    func testInput5DotMinus3Eqauls_ItReturns2() {
+    func testInput5DotMinus3Equal_ItReturns2() {
         let displayResult = calculate(input: ["5", ".", "-", "3", "="])
         
         XCTAssertEqual(displayResult, State(reducedInput: ["2"], displayValue: "2"))
