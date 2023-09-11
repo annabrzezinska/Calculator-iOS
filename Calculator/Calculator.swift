@@ -1,15 +1,15 @@
 import Foundation
 
-struct Result: Equatable {
+struct State: Equatable {
     let reducedInput: [String]
     let displayValue: String
 }
 
 private let operators: [String] = ["+", "-", "*", "/", "="]
 
-func calculate(input: [String]) -> Result {
+func calculate(input: [String]) -> State {
     guard let lastElement = input.last else {
-        return Result(reducedInput: [], displayValue: "0")
+        return State(reducedInput: [], displayValue: "0")
     }
 
     let lastOperator = input.last(where: { element in operators.contains(element) })
@@ -37,6 +37,9 @@ func calculate(input: [String]) -> Result {
         
         displayResults = ["\(mathResult)"]
         reducedInput = displayResults + input.suffix(1)
+    } else if input.first == "." {
+        reducedInput = ["0"] + input
+        displayResults = reducedInput
     } else if lastOperator == lastElement { // FIXME: Needs to be refactored
         displayResults = input.first == lastOperator ? ["0"] : input.filter({ element in !operators.contains(element) })
         reducedInput = input.first == lastOperator ? ["0"] + input : displayResults + input.suffix(1)
@@ -46,10 +49,10 @@ func calculate(input: [String]) -> Result {
         reducedInput = lastOperator == "=" ? displayResults : input
     } else {
         displayResults = input
-        reducedInput = input
+        reducedInput = input.first == "0" ? Array(input.dropFirst()) : input // FIXME: Needs to be refactored
     }
 
-    return Result(
+    return State(
         reducedInput: reducedInput.filter({ element in element != "=" }),
         displayValue: displayResults.joined()
     )
