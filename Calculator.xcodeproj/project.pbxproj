@@ -67,6 +67,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		205B3D1E2AAF3B0000CABF4D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				20897CDD2AA3852700163266 /* AppDelegate.swift */,
+				20897CE12AA3852700163266 /* CalculatorViewController.swift */,
+				20897D0F2AA4AA0300163266 /* Calculator.swift */,
+				20570F522AAD172E00845575 /* CalculatorView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		205B3D1F2AAF3B1B00CABF4D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				20897CE62AA3852800163266 /* Assets.xcassets */,
+				20897CE82AA3852800163266 /* LaunchScreen.storyboard */,
+				20897CEB2AA3852800163266 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		205B3D202AAF3B3500CABF4D /* UnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				205B3D232AAF3BE700CABF4D /* App */,
+			);
+			path = UnitTests;
+			sourceTree = "<group>";
+		};
+		205B3D212AAF3B5900CABF4D /* SnapshotTests */ = {
+			isa = PBXGroup;
+			children = (
+				205B3D222AAF3BCB00CABF4D /* App */,
+			);
+			path = SnapshotTests;
+			sourceTree = "<group>";
+		};
+		205B3D222AAF3BCB00CABF4D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				20CB92E12AA8A20A00558775 /* CalculatorViewControllerSnapshotTests.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		205B3D232AAF3BE700CABF4D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				20897CF42AA3852900163266 /* AppDelegateTests.swift */,
+				20897D0D2AA3910200163266 /* CalculatorTests.swift */,
+				205B3D172AADF30B00CABF4D /* CalculatorViewControllerTests.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		20897CD12AA3852600163266 = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +143,8 @@
 		20897CDC2AA3852700163266 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				20897CDD2AA3852700163266 /* AppDelegate.swift */,
-				20897CE12AA3852700163266 /* CalculatorViewController.swift */,
-				20897CE62AA3852800163266 /* Assets.xcassets */,
-				20897CE82AA3852800163266 /* LaunchScreen.storyboard */,
-				20897CEB2AA3852800163266 /* Info.plist */,
-				20897D0F2AA4AA0300163266 /* Calculator.swift */,
-				20570F522AAD172E00845575 /* CalculatorView.swift */,
+				205B3D1E2AAF3B0000CABF4D /* App */,
+				205B3D1F2AAF3B1B00CABF4D /* Resources */,
 			);
 			path = Calculator;
 			sourceTree = "<group>";
@@ -102,10 +152,8 @@
 		20897CF32AA3852900163266 /* CalculatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				20897CF42AA3852900163266 /* AppDelegateTests.swift */,
-				20897D0D2AA3910200163266 /* CalculatorTests.swift */,
-				20CB92E12AA8A20A00558775 /* CalculatorViewControllerSnapshotTests.swift */,
-				205B3D172AADF30B00CABF4D /* CalculatorViewControllerTests.swift */,
+				205B3D212AAF3B5900CABF4D /* SnapshotTests */,
+				205B3D202AAF3B3500CABF4D /* UnitTests */,
 			);
 			path = CalculatorTests;
 			sourceTree = "<group>";
@@ -384,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = Calculator/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -409,7 +457,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Calculator/Info.plist;
+				INFOPLIST_FILE = Calculator/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
