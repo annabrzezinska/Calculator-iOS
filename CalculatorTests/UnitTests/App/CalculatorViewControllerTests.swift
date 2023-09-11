@@ -301,6 +301,31 @@ class CalculatorViewControllerTests: XCTestCase {
 
         XCTAssertEqual(sut.displayLabel?.text, "1")
     }
+    
+    func testWhenTappedOn7Dot2Dot_ItDisplays7Dot2() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: ".")
+
+        XCTAssertEqual(sut.displayLabel?.text, "7.2")
+    }
+    
+    func testWhenTappedOn7Dot2Dot3Dot5_ItDisplays7Dot235() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "3")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "5")
+
+        XCTAssertEqual(sut.displayLabel?.text, "7.235")
+    }
 
 }
 

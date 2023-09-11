@@ -47,6 +47,9 @@ func calculate(input: [String]) -> State {
         let splitResult = input.split(separator: lastOperator).suffix(1)
         displayResults = splitResult.flatMap(Array.init)
         reducedInput = lastOperator == "=" ? displayResults : input
+    } else if input.last == "." && input.filter({ element in element == "." }).count > 1 { // FIXME: Needs to be refactored
+        displayResults = input.dropLast()
+        reducedInput = displayResults
     } else {
         displayResults = input
         reducedInput = input.first == "0" ? Array(input.dropFirst()) : input // FIXME: Needs to be refactored

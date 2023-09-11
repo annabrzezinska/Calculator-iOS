@@ -194,5 +194,11 @@ class CalculatorTests: XCTestCase {
         
         XCTAssertEqual(displayResult, State(reducedInput: ["2"], displayValue: "2"))
     }
+    
+    func testWhenTappedOn7Dot2Dot_ItDisplays7Dot2() {
+        let displayResult = calculate(input: ["7", ".", "2", "."])
+        
+        XCTAssertEqual(displayResult, State(reducedInput: ["7", ".", "2"], displayValue: "7.2"))
+    }
 
 }
