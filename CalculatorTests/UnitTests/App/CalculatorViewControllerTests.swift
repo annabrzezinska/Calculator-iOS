@@ -326,6 +326,105 @@ class CalculatorViewControllerTests: XCTestCase {
 
         XCTAssertEqual(sut.displayLabel?.text, "7.235")
     }
+    
+    func testWhenTappedOn7Minus2Equal3_ItDisplays3() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: "−")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "3")
+
+        XCTAssertEqual(sut.displayLabel?.text, "3")
+    }
+    
+    func testWhenTappedOnEqual5Minus1_ItDisplays1() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: "−")
+        try sut.simulateTapOnButton(withTitle: "1")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "1")
+    }
+    
+    func testWhenTappedOnEqual5Minus1Equal_ItDisplays4() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: "−")
+        try sut.simulateTapOnButton(withTitle: "1")
+        try sut.simulateTapOnButton(withTitle: "=")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "4")
+    }
+    
+    func testWhenTappedOnDot8Plus_ItDisplays0Dot8() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "8")
+        try sut.simulateTapOnButton(withTitle: "+")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "0.8")
+    }
+    
+    func testWhenTappedOn7Divide2Equal5Dot6Plus_ItDisplays5Dot6() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: "÷")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "6")
+        try sut.simulateTapOnButton(withTitle: "+")
+
+        XCTAssertEqual(sut.displayLabel?.text, "5.6")
+    }
+    
+    func testWhenTappedOn7PlusDot2_ItDisplays0Dot2() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: "+")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "2")
+
+        XCTAssertEqual(sut.displayLabel?.text, "0.2")
+    }
+    
+    func testWhenTappedOn7Divide2EqualDot_ItDisplays0Dot() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: "÷")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: ".")
+
+        XCTAssertEqual(sut.displayLabel?.text, "0.")
+    }
+    
+    func testWhenTappedOn7Divide2EqualDot5Dot6Plus_ItDisplays0Dot56() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: "÷")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "6")
+        try sut.simulateTapOnButton(withTitle: "+")
+
+        XCTAssertEqual(sut.displayLabel?.text, "0.56")
+    }
 
 }
 

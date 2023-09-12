@@ -55,9 +55,10 @@ func calculate(input: [String]) -> State {
         reducedInput = input.first == "0" ? Array(input.dropFirst()) : input // FIXME: Needs to be refactored
     }
 
+    let filteredDisplayResult = displayResults.filter({element in !operators.contains(element)})
     return State(
-        reducedInput: reducedInput.filter({ element in element != "=" }),
-        displayValue: displayResults.joined()
+        reducedInput: reducedInput,
+        displayValue: filteredDisplayResult.first == "." ? ["0"] + filteredDisplayResult.joined() : filteredDisplayResult.joined()
     )
 }
 
