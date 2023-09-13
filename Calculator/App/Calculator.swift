@@ -80,12 +80,29 @@ private func parse(input: [String]) -> ParsedResult? {
         return nil
     }
     
-    let lhs = expression[0].filter { value in !operators.contains(value) }.joined()
-    let rhs = expression[1].filter { value in !operators.contains(value) }.joined()
+    let lhs = Array(expression[0])
+    let rhs = Array(expression[1])
     
-    guard !lhs.isEmpty && !rhs.isEmpty else {
+    let lhsNumber = filteredSide(ofExpression: lhs).joined()
+    let rhsNumber = filteredSide(ofExpression: rhs).joined()
+    
+    guard !lhsNumber.isEmpty && !rhsNumber.isEmpty else {
         return nil
     }
     
-    return .init(lhsNumber: lhs, rhsNumber: rhs, operator: `operator`)
+    return .init(lhsNumber: lhsNumber, rhsNumber: rhsNumber, operator: `operator`)
+}
+
+/// This function takes left or right side of expression, filters out the operators and redundant dots
+private func filteredSide(ofExpression expression: [String]) -> [String] {
+    expression
+        .filter { element in !operators.contains(element) }
+        .enumerated()
+        .filter { index, element in
+            let isFirstDot = index == expression.firstIndex(of: ".")
+            let isDifferentThanDot = element != "."
+            
+            return isFirstDot || isDifferentThanDot
+        }
+        .map { index, element in element }
 }
