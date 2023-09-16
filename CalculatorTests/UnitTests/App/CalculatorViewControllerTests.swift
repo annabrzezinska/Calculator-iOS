@@ -191,6 +191,15 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "4")
     }
     
+    func testWhenTappedOnMultiply2_ItDisplays2() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "×")
+        try sut.simulateTapOnButton(withTitle: "2")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "2")
+    }
+    
     func testWhenTappedOnMultiply8Minus_ItDisplays0() throws {
         sut.loadViewIfNeeded()
         
@@ -199,6 +208,16 @@ class CalculatorViewControllerTests: XCTestCase {
         try sut.simulateTapOnButton(withTitle: "−")
         
         XCTAssertEqual(sut.displayLabel?.text, "0")
+    }
+    
+    func testWhenTappedOnMinus2Minus_ItDisplaysMinus2() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "−")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "−")
+
+        XCTAssertEqual(sut.displayLabel?.text, "-2")
     }
     
     func testWhenTappedOnSixDivideTwoAndMultiply_ItDisplays3() throws {
@@ -339,6 +358,16 @@ class CalculatorViewControllerTests: XCTestCase {
         XCTAssertEqual(sut.displayLabel?.text, "3")
     }
     
+    func testWhenTappedOnEqual5Minus_ItDisplays5() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: "−")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "5")
+    }
+    
     func testWhenTappedOnEqual5Minus1_ItDisplays1() throws {
         sut.loadViewIfNeeded()
         
@@ -360,6 +389,44 @@ class CalculatorViewControllerTests: XCTestCase {
         try sut.simulateTapOnButton(withTitle: "=")
         
         XCTAssertEqual(sut.displayLabel?.text, "4")
+    }
+    
+    func testWhenTappedOn5Equal2Plus1Equal_ItDisplays3() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "5")
+        try sut.simulateTapOnButton(withTitle: "=")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "+")
+        try sut.simulateTapOnButton(withTitle: "1")
+        try sut.simulateTapOnButton(withTitle: "=")
+        
+        XCTAssertEqual(sut.displayLabel?.text, "3")
+    }
+    
+    func testWhenTappedOn002_ItDisplays2() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "2")
+
+        XCTAssertEqual(sut.displayLabel?.text, "2")
+    }
+    
+    func testWhenTappedOn002Plus003_ItDisplays3() throws {
+        sut.loadViewIfNeeded()
+        
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: "+")
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "0")
+        try sut.simulateTapOnButton(withTitle: "3")
+        
+        
+        XCTAssertEqual(sut.displayLabel?.text, "3")
     }
     
     func testWhenTappedOnDot8Plus_ItDisplays0Dot8() throws {
@@ -443,6 +510,36 @@ class CalculatorViewControllerTests: XCTestCase {
         try sut.simulateTapOnButton(withTitle: "=")
 
         XCTAssertEqual(sut.displayLabel?.text, "9.53")
+    }
+    
+    func testWhenTappedOn2Dot1Dot4Plus_ItDisplays2Dot14() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "1")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "4")
+        try sut.simulateTapOnButton(withTitle: "+")
+
+        XCTAssertEqual(sut.displayLabel?.text, "2.14")
+    }
+    
+    func testWhenTappedOn2Dot14Plus7Dot3Dot9_ItDisplays7Dot39() throws {
+        sut.loadViewIfNeeded()
+
+        try sut.simulateTapOnButton(withTitle: "2")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "1")
+        try sut.simulateTapOnButton(withTitle: "4")
+        try sut.simulateTapOnButton(withTitle: "+")
+        try sut.simulateTapOnButton(withTitle: "7")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "3")
+        try sut.simulateTapOnButton(withTitle: ".")
+        try sut.simulateTapOnButton(withTitle: "9")
+
+        XCTAssertEqual(sut.displayLabel?.text, "7.39")
     }
 
 }
