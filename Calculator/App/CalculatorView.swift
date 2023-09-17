@@ -117,6 +117,7 @@ private extension UIButton {
         let button = UIButton(type: .custom)
         button.setTitle(title, for: .normal)
         button.setTitleColor(titleColor, for: .normal)
+        button.setTitleColor(.lightGray, for: .highlighted)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 30, weight: .medium)
         button.backgroundColor = .offWhite
         
